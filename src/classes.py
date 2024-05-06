@@ -21,6 +21,7 @@ class HH(HHabstract):
         self.params = {'text': '', 'page': 0, 'per_page': 100}
 
     def load_vacancies(self, keyword):
+        """Выполняет запрос по ключевому слову и записывает в файл.json"""
         vacan = []
         self.params['text'] = keyword
         while self.params.get('page') != 1:

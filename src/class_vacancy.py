@@ -59,6 +59,7 @@ class FromVacancy:
 
     @staticmethod
     def filter_vacations(top_vacancies, filter_word):
+        """Фильтрация по ключевому слову"""
         filter = []
         for item in top_vacancies:
             if not item.requirement:
@@ -69,6 +70,7 @@ class FromVacancy:
 
     @staticmethod
     def get_vacancies_by_salary(filter_vac, salary_range):
+        """Фильтрация по зарплате"""
         range_salary = []
         for i in filter_vac:
             if i.salary_from >= int(salary_range[0]) and i.salary_to <= int(salary_range[2]):
