@@ -1,4 +1,5 @@
 import requests
+import json
 from abc import ABC, abstractmethod
 
 
@@ -27,6 +28,9 @@ class HH(HHabstract):
             vacancies = response.json()['items']
             vacan.extend(vacancies)
             self.params['page'] += 1
+        with open('vacantions.json', 'w', encoding="utf8") as file:
+            json.dump(vacan, file)
+            file.write('\n')
         return vacan
 
 
