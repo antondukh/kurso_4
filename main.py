@@ -1,7 +1,5 @@
-from classes import HH
-from class_vacancy import FromVacancy
-from class_connector import SaveJson
-
+from src.classes import HH
+from src.class_vacancy import FromVacancy
 
 hh_api = HH()
 
