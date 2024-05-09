@@ -1,7 +1,5 @@
 from abc import ABC, abstractmethod
 import json
-from classes import *
-
 
 class EditingFile(ABC):
 
@@ -23,19 +21,23 @@ class SaveJson(EditingFile):
     Класс для сохранения и получения вакансий в JSON-файл
     """
 
-    def __init__(self, file_):
-        self.file_ = file_
+    def __init__(self, __file_):
+        self.__file_ = 'data/vacantions.json'
 
-    def add_vacancy(self, vacancy_data):
-        with open(self.file_, 'a') as file:
-            json.dump(vacancy_data, file)
+    @staticmethod
+    def add_vacancy(x):
+        """Добавление вакансий"""
+        with open('data/vacantions.json', 'w', encoding="utf8") as file:
+            json.dump(x, file)
             file.write('\n')
 
     def get_vacancies(self):
-        with open(self.file_, 'r') as file:
+        """Просмотр вакансий"""
+        with open(self.__file_, 'r') as file:
             vacancies = json.load(file)
             return vacancies
 
     def del_vacancies(self):
-        with open(self.file_, "w") as file:
+        """Удаление вакансий"""
+        with open(self.__file_, "w") as file:
             pass

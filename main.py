@@ -1,5 +1,6 @@
 from src.classes import HH
 from src.class_vacancy import FromVacancy
+from src.class_connector import SaveJson
 
 hh_api = HH()
 
@@ -11,6 +12,8 @@ def user_interaction():
     filter_words = input("Введите ключевое слово для фильтрации вакансий:-> ")
     salary_range = input("Введите диапазон зарплат: Пример: 100000 - 150000 -> ").split(' ')
     hh_vacancies = hh_api.load_vacancies(search_query)
+
+    vacancies_save = SaveJson.add_vacancy(hh_vacancies)
 
     vacancies_list = FromVacancy.cast_to_object_list(hh_vacancies)
 
